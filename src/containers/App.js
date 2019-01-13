@@ -11,7 +11,7 @@ import {robots} from '../robots'
 import './App.css';
 
 
-class App extends React.Component {
+class App extends React.Component { //<--- Smart Component
     constructor() {
         super()
         this.state = {
