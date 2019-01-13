@@ -5,7 +5,7 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 
 // DATA
-import {robots} from '../robots'
+//import {robots} from '../robots'
 
 // STYLESHEETS
 import './App.css';
@@ -15,9 +15,15 @@ class App extends React.Component { //<--- Smart Component
     constructor() {
         super()
         this.state = {
-            robots: robots,
+            robots: [], //<--- Changed to an empty array
             searchFeild: ''
         }
+    }
+
+    componentDidMount(){
+        fetch('http://jsonplaceholder.typicode.com/users').then(response => {
+            return response.json();
+        }).then(users => this.setState({robots: users}));
     }
 
     onSearchChange = (event) => {
