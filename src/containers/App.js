@@ -3,6 +3,7 @@ import React from 'react';
 // COMPONENTS
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
 
 // DATA
 //import {robots} from '../robots'
@@ -44,7 +45,9 @@ class App extends React.Component { //<--- Smart Component
 
                     <SearchBox searchChange={this.onSearchChange}/>
 
-                    <CardList robots={filteredRobots} />
+                    <Scroll>
+                        <CardList robots={filteredRobots} />
+                    </Scroll>
                 </div>
             );
         }
