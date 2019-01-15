@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider, connet } from 'react-redux'
+import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-// CONTAINER
+// MAIN CONTAINER
 import App from './containers/App';
 
 // SERVICE WORKERS
