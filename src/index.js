@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { createLogger, applyMiddleware } from 'redux-logger'
-import { createStore } from 'redux'
+import { createLogger } from 'redux-logger'
+import { createStore, applyMiddleware } from 'redux'
 
 // MAIN CONTAINER
 import App from './containers/App';
@@ -18,7 +18,7 @@ import './index.css';
 import 'tachyons';
 
 // CREATING MIDDLEWARE
-const logger = createLogger();
+const logger = createLogger()
 
 // CREATING THE STORE 
 const store = createStore(searchRobots, applyMiddleware(logger));
