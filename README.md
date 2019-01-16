@@ -1,12 +1,12 @@
-## ROBOT-Friends 
+# Robot-Friends 
 Created using React and Redux
 
-# Other frameworks used:
-  - React-Redux
-    $ npm install react-redux
+## Other frameworks used:
+  ### React-Redux
+      - $ npm install react-redux
    
-  - Redux-Logger
-    $ npm install redux-logger
+  ### Redux-Logger
+      - $ npm install redux-logger
     
-  - Redux-Thunk
-    $ npm install redux-thunk
+  ### Redux-Thunk
+      - $ npm install redux-thunk
