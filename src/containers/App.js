@@ -33,7 +33,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends React.Component { //<--- Smart Component
-    /* 
+    /* NO Longer Nedded
     constructor() {
         super()
         this.state = {
@@ -42,7 +42,7 @@ class App extends React.Component { //<--- Smart Component
     }
     */
 
-    componentDidMount(){  //<---- Asyncronous  FETCH()
+    componentDidMount(){  //<---- Asyncronous FETCH()
         this.props.onRequestRobots();
         /* fetch('http://jsonplaceholder.typicode.com/users').then(response => { <--- NO Longer Needed
             return response.json();
@@ -50,7 +50,7 @@ class App extends React.Component { //<--- Smart Component
     }
 
     /* 
-    onSearchChange = (event) => {  <---- NO longer need
+    onSearchChange = (event) => {  <---- NO Longer Needed
         this.setState({searchFeild: event.target.value});
     } 
     */
