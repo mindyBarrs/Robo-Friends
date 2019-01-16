@@ -3,10 +3,10 @@ Created using React and Redux
 
 ## Other frameworks used:
   ### React-Redux
-      - $ npm install react-redux
+       $ npm install react-redux
    
   ### Redux-Logger
-      - $ npm install redux-logger
+       $ npm install redux-logger
     
   ### Redux-Thunk
-      - $ npm install redux-thunk
+       $ npm install redux-thunk
