@@ -1,6 +1,6 @@
 {
   "name": "robot-react-app",
-  "homepage": "http://mindybarrs.github.io/robo-friends",
+  "homepage": "https://mindybarrs.github.io/robo-friends",
   "version": "0.1.0",
   "dependencies": {
     "react": "^16.7.0",
