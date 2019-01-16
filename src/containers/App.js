@@ -11,65 +11,71 @@ import Scroll from '../components/Scroll';
 //import {robots} from '../robots'
 
 // ACTIONS
-import {setSearchFeild} from '../actions'
+import {setSearchFeild, requestRobots} from '../actions'
 
 // STYLESHEETS
 import './App.css';
 
 const mapStateToProps = state => {
     return {
-        searchFeild: state.searchFeild
+        searchFeild: state.searchRobots.searchFeild,
+        robots: state.requestRobots.robots,
+        isPending: state.requestRobots.isPending,
+        error: state.requestRobots.error
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        onSearchChange: (event) => dispatch(setSearchFeild(event.target.value))
+        onSearchChange: (event) => dispatch(setSearchFeild(event.target.value)),
+        onRequestRobots: () => dispatch(requestRobots())
     }
 }
 
 class App extends React.Component { //<--- Smart Component
+    /* 
     constructor() {
         super()
         this.state = {
             robots: [] //<--- Changed to an empty array
         }
     }
+    */
 
-    componentDidMount(){
-        fetch('http://jsonplaceholder.typicode.com/users').then(response => {
+    componentDidMount(){  //<---- Asyncronous  FETCH()
+        this.props.onRequestRobots();
+        /* fetch('http://jsonplaceholder.typicode.com/users').then(response => { <--- NO Longer Needed
             return response.json();
-        }).then(users => this.setState({robots: users}));
+        }).then(users => this.setState({robots: users})); */
     }
 
-    /* onSearchChange = (event) => {  <---- NO longer need
+    /* 
+    onSearchChange = (event) => {  <---- NO longer need
         this.setState({searchFeild: event.target.value});
-    } */
+    } 
+    */
 
     render(){
-        const {robots} = this.state;
-        const {searchFeild , onSearchChange} = this.props;
+        const {searchFeild , onSearchChange, robots, isPending} = this.props;
         const filteredRobots = robots.filter(robots => {
             return robots.name.toLowerCase().includes(searchFeild.toLowerCase());
         });
 
-        if(robots.length === 0){
-            return <h1 className="f2 tc">Loading....</h1>
-        }else{
-            return(
-                <div className="tc">
-                    <h1 className="f2">RoboFriends</h1>
+        return isPending ?
+         <h1 className="f2 tc">Loading....</h1> :
+        (
+            <div className="tc">
+                <h1 className="f2">RoboFriends</h1>
 
-                    <SearchBox searchChange={onSearchChange}/>
+                <SearchBox searchChange={onSearchChange}/>
 
-                    <Scroll>
-                        <ErrorBoundry>
-                            <CardList robots={filteredRobots} />
-                        </ErrorBoundry>
-                    </Scroll>
-                </div>
-            );
-        }
+                <Scroll>
+                    <ErrorBoundry>
+                        <CardList robots={filteredRobots} />
+                    </ErrorBoundry>
+                </Scroll>
+            </div>
+        );
     }
 }
 
